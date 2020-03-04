@@ -21,8 +21,17 @@ public class MovieService {
     this.moviePackageRepository = moviePackageRepository;
   }
 
-  public Movie createMovie(String title, String director, String stars, String description, String year, String duration,
-                           Integer price, String genre, String moviePackageName, Language language, Region region ) {
+  public Movie createMovie(String title,
+                           String director,
+                           String stars,
+                           String description,
+                           String year,
+                           String duration,
+                           Integer price,
+                           String genre,
+                           String moviePackageName,
+                           Language language,
+                           Region region ) {
     MoviePackage moviePackage=moviePackageRepository
             .findByName(moviePackageName)
             .orElseThrow(()-> new RuntimeException("There is no movie package named :" + moviePackageName));

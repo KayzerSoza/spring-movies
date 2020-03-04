@@ -12,25 +12,27 @@ import java.util.Optional;
 
 public interface MoviePackageRepository extends CrudRepository<MoviePackage, String> {
 
-
-  boolean existsById(String code);
+  Optional<MoviePackage> findByName(@Param("name") String name);
+  Optional<MoviePackage> findById(String id);
 
   Iterable<MoviePackage> findAll();
+
   Iterable<MoviePackage> findAllById(Iterable<String> iterable);
+
   long count();
 
   MoviePackage save(MoviePackage moviePackage);
 
-//  List<MoviePackage> saveAll(Iterable<MoviePackage> iterable);
+
   void deleteByName(String name);
 
 
   void delete(MoviePackage moviePackage);
-//void deleteAll(Iterable<MoviePackage> iterable);
+
 
   void deleteAll();
 
 
-  Optional<MoviePackage> findById(String id);
-  Optional<MoviePackage> findByName(String name);
+
+
 }
